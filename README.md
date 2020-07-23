@@ -15,7 +15,7 @@
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :sending_destinations
+- has_many :item_purchases
 
 ## itemsテーブル
 
@@ -31,12 +31,13 @@
 |postage_type|references|null: false|
 |postage_payer|references|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|sending_destination_id|integer|null: false, foreign_key: true|
+|addresses_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_many :sending_destinations
+- has_many :adds
+- has_one :item_purchase
 
 ## commentsテーブル
 
@@ -50,7 +51,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## sending_destinations テーブル
+## adds テーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -59,21 +60,19 @@
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string||
-|phone_number|integer|unique: true|
+|phone_number|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
 
-## transactions テーブル
+## item_purchases テーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
-|sending_destination_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
 - belongs_to :user
-- belongs_to :sending_destination
