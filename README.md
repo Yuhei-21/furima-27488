@@ -72,9 +72,7 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
-|address_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
 - belongs_to :user
-- has_one :address
