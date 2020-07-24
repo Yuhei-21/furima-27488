@@ -31,7 +31,6 @@
 |postage_type|references|null: false|
 |postage_payer|references|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|addresses_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -51,7 +50,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## adds テーブル
+## address テーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -72,6 +71,7 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
+|sending_destination_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
