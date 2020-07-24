@@ -26,7 +26,7 @@
 |image|references|null: false|
 |category|references|null: false|
 |condition|references|null: false|
-|item_explanation|references|null: false|
+|item_explanation|text|null: false|
 |preparation_day|references|null: false|
 |postage_type|references|null: false|
 |postage_payer|references|null: false|
@@ -35,7 +35,7 @@
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_many :adds
+- has_many :address
 - has_one :item_purchase
 
 ## commentsテーブル
@@ -64,6 +64,7 @@
 
 ### Association
 - belongs_to :item
+- has_one :item_purchase
 
 ## item_purchases テーブル
 
@@ -71,8 +72,9 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
-|sending_destination_id|integer|null: false, foreign_key: true|
+|address_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
 - belongs_to :user
+- has_one :address
