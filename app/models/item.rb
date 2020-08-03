@@ -6,4 +6,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postagetype
   belongs_to_active_hash :postagepayer
   has_one_attached :image
+  validates :price, presence:ture,uniqueness:ture,
+                    length: {minimum:300, ,aximum:99999999}
 end
