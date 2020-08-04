@@ -7,17 +7,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @category = Category.all
-    @condition = Condition.all
-    @postagepayer = Postagepayer.all
-    @postagetype = Postagetype.all
-    @preparationday = Preparationday.all
   end
 
   def create
     @item = Item.create(item_params)
     if @item.valid?
-      @item.save!
+      @item.save
       redirect_to @item
     else
       render :new
@@ -31,8 +26,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update params.require(:item).permit(item_params)
-    redirect_to @item
+    @item = Item.update(item_params)
+    if @item.valid?
+      @item.save
+      redirect_to @item
+    else
+      render :new
+    end
   end
 
   private
