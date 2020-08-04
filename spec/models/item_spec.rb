@@ -46,5 +46,15 @@ describe Item do
       item.valid?
       expect(item.errors[:preparation_day]).to include("can't be blank")
     end
+
+    # 8. priceが300以上であれば登録できること
+    it "is valid with a price that has more than 300 characters " do
+      expect(item).to be_valid
+    end
+
+    # 9. priceが100000000以下であれば登録できないこと
+    it "is invalid with a price that has less than 100000000 characters " do
+      item.valid?
+      expect(item.errors[:price]).to include("is too short (minimum is 100000000 characters)")
   end
 end
