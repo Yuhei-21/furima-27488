@@ -60,9 +60,16 @@ describe Item do
       expect(@item).to be_valid
     end
 
-    # 9. priceが100000000以下であれば登録できないこと
+    # 9. priceが100000000以上であれば登録できないこと
     it "is invalid with a price that has less than 100000000 characters " do
       @item.price = 100000000
+      @item.valid?
+      expect(@item.errors[:price]).to include("is not included in the list")
+    end
+
+    # 10. priceが300以下であれば登録できないこと
+    it "is invalid with a price that has less than 300 characters " do
+      @item.price = 299
       @item.valid?
       expect(@item.errors[:price]).to include("is not included in the list")
     end
