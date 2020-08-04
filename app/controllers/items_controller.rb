@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.order("id DESC")
@@ -27,12 +27,10 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def edit
-    @item = Item.find(params[:id]) 
+  def edit 
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update params.require(:item).permit(item_params)
     redirect_to @item
   end
