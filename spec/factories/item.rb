@@ -5,11 +5,12 @@ FactoryBot.define do
     price                 {"400"}
     category_id           {"3"}
     condition_id          {"3"}
-    item_explanation      {"ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"}
+    item_explanation      {"ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"}
     preparationday_id     {"3"}
     postagepayer_id       {"3"}
     postagetype_id        {"3"}
-    image               { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/redstyakiA033_TP_V.jpg')) }
+    after(:build) do |item|
+      item.image.attach(io: File.open('spec/fixtures/sample.jpg'), filename: 'sample.jpg', content_type: 'image/jpg')
+    end
   end
-
 end
