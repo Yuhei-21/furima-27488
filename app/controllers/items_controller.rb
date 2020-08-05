@@ -26,12 +26,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.update(item_params)
     if @item.valid?
       @item.save
       redirect_to @item
     else
-      render :new
+      render :show
     end
   end
 
