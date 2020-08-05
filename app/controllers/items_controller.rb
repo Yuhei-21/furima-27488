@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.order("id DESC")
@@ -30,6 +30,11 @@ class ItemsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to @item
   end
 
   private
