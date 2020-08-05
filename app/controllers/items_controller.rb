@@ -33,8 +33,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to @item
+    if @item.destroy
+      redirect_to @item
+    else
+      render :index
+    end
   end
 
   private
