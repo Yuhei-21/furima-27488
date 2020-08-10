@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_080824) do
+ActiveRecord::Schema.define(version: 2020_08_10_053329) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2020_08_02_080824) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
@@ -43,6 +52,19 @@ ActiveRecord::Schema.define(version: 2020_08_02_080824) do
     t.integer "postagepayer_id", null: false
     t.text "item_explanation", null: false
     t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.integer "postcode", null: false
+    t.integer "prefecturecode", null: false
+    t.string "city", null: false
+    t.string "housenumber", null: false
+    t.string "buildingname"
+    t.string "phonenumber", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

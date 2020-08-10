@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postagetype
   belongs_to_active_hash :postagepayer
   has_one_attached :image
+  has_one :purchase
+
 
   validates_inclusion_of :price, in: 300..99999999
   # validates_inclusion_of :price, in: 300..9999999, message: 'Out of setting range'
