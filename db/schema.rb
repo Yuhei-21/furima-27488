@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_082503) do
+ActiveRecord::Schema.define(version: 2020_08_10_053329) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name", null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_082503) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "item_id", null: false
     t.integer "postcode", null: false
