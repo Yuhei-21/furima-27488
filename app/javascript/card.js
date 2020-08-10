@@ -1,6 +1,6 @@
 $(function(){
   var form = $("#charge-form");
-  Payjp.setPublicKey('pk_test_7cca91d32f4d70f61766050f');
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   $('.buy-red-btn').on('click', function(e){
     e.preventDefault();
     form.find("input[type=submit]").prop("disabled", true);
