@@ -1,6 +1,7 @@
 $(function(){
   let form = $("#charge-form");
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
+    console.log(process.env.PAYJP_PUBLIC_KEY)
   $('.buy-red-btn').on('click', function(e){
     e.preventDefault();
     form.find("input[type=submit]").prop("disabled", true);
